@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  nodeapp:
+    image: david/nodeapp:latest
+
+  test:
+    image: david/nodetest:latest
+    environment:
+      - SUT_HOST=nodeapp
+    depends_on:
+      - nodeapp

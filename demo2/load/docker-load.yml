@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  test:
+    image: david/load:latest
+    environment:
+      - SUT_HOST=nodeapp
+      - SUT_PORT=8080
+    depends_on:
+      - nodeapp

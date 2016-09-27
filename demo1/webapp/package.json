@@ -1,0 +1,15 @@
+{
+  "name": "docker_web_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "author": "David Clarke <david@wepay.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "./node_modules/nodeunit/bin/nodeunit test/nodeunit.js"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "nodeunit": "^0.10.2"
+  }
+}
