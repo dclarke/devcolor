@@ -27,4 +27,20 @@ A more complex scenario where you can run both functional tests against a servic
   docker-compose build
   docker-compose -f docker-compose.yml run test
   docker-compose -f docker-compose.yml -f load/docker-load.yml run test
+  docker-compose -f docker-compose.yml -f security/docker-security.yml run test
 ```
+The value is you can chain multiple types of suites by simply overloading the compose file, and keeping the last part similar. 
+Ex: 
+``` 
+  CERTIFICATIONS=`find ./ -name 'docker*.yml' ! -name 'docker-compose.yml'`
+  for certification in $CERTIFICATIONS; do
+     docker-compose -f docker-compose.yml -f $certification run test
+     if [ $? != 0 ];
+     then
+      export EXIT=1;
+     fi
+  done
+  exit $EXIT
+  
+  So you can chain multiple types of suites in a very simple script, spanning multiple languages / toolsets without increasing your complexity. 
+  
