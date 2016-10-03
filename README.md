@@ -12,7 +12,9 @@ The first demo attempts to show a basic Dockerfile, and how you can use it to st
 ## Getting the demo going
 ```
    docker-compose build
-   docker-compose run test
+   docker-compose run nodeapp npm test   <-- run unit test
+   docker-compose run nodeapp            <-- run app
+   docker-compose run test               <-- run functional test
    To make the test fail simply change the environment variable
    docker-compose run -e"SUT_HOST=foo" test
 ```
